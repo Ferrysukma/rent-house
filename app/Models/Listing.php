@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Transaction;
 use Str;
 
-class Listings extends Model
+class Listing extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -47,7 +48,7 @@ class Listings extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function transaction(): HasMany
+    public function transaction(): HasMany 
     {
         return $this->hasMany(Transaction::class);
     }

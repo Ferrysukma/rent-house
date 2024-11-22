@@ -4,7 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ListingsResource\Pages;
 use App\Filament\Resources\ListingsResource\RelationManagers;
-use App\Models\Listings;
+use App\Models\Listing;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Form;
@@ -18,7 +18,7 @@ use Str;
 
 class ListingsResource extends Resource
 {
-    protected static ?string $model = Listings::class;
+    protected static ?string $model = Listing::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-home-modern';
 

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\Listings;
+use App\Models\Listing;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
@@ -13,7 +13,7 @@ class StatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {   
-        $listing        = Listings::whereMonth("created_at", Carbon::now()->month)->whereYear('created_at', Carbon::now()->year)->count();
+        $listing        = Listing::whereMonth("created_at", Carbon::now()->month)->whereYear('created_at', Carbon::now()->year)->count();
         $transaction    = Transaction::where('status', 'approved')->whereMonth('created_at', Carbon::now()->month)->whereYear('created_at', Carbon::now()->year)->count();
         $prevTransaction    = Transaction::where('status', 'approved')->whereMonth('created_at', Carbon::now()->subMonth()->month)->whereYear('created_at', Carbon::now()->subMonth()->year)->count();
         $percentageTransaction  = $transaction - $prevTransaction / ($transaction + $prevTransaction) / 2 * 100;
