@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ListingController extends Controller
 {
     public function index() {
-        $listing    = Listing::withCount('transaction')->orderBy('transaction_count', 'desc')->paginate();
+        $listing    = Listing::withCount('transaction')->orderBy('transaction_count', 'desc')->paginate(5);
         return json_encode([
             'success'   => true,
             'message'   => 'List data listing',
